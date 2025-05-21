@@ -955,16 +955,19 @@
     <script>
         // Message suggestions data
         const suggestionsData = [
-            'שלום, מעוניין להזמין חומרים.',
-            'מתי צפוי הנהג להגיע לאתר?',
+            'שלום🚚, מעוניין להזמין חומרים.',
+            'רוצה 🚚 להזמין מכולה 8 קוב',
+            'שלום 🚚,רוצה להחליף את המכולה שיש לי כרגע',
+            'שלום 🚚אנו רוצה להוציא את המכולה מהאתר',
+          'מתי צפוי הנהג להגיע לאתר?📍',
             'מה הסטטוס של הזמנה מס',
             'יש הערה על ההזמנה האחרונה.',
             'צריך לדבר עם נציג על בעיה',
             'האם תוכלו לשלוח הצעת מחיר?',
-            'האם המוצר X זמין במלאי?',
-            'אפשר לשנות כתובת למשלוח?',
+            'רוצה לשלוח לכם מיקום מדויק להעביר לנהג 📍',
+            'אפשר לשנות כתובת למשלוח?📍',
             'שאלה לגבי החשבונית האחרונה.',
-            'אשמח לעדכונים על מבצעים'
+            'תעצור 🛑 את ההזמנה עד להודעה חדשה ממני בבקשה'
         ];
 
         // Show/hide messages list
@@ -1076,7 +1079,7 @@
         const sendWhatsappBtn = document.getElementById('sendWhatsappBtn');
 
         sendWhatsappBtn.addEventListener('click', function() {
-            const phone = '97297602010'; // Corrected phone number format
+            const phone = '972508860896'; // Corrected phone number format
             const message = encodeURIComponent(popupMessageText.textContent);
             const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
             window.open(whatsappUrl, '_blank');
