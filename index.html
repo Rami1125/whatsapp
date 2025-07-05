@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>קטלוג ח.סבן חומרי בניין - שדרוג מקצועי</title>
     <!-- ייבוא פונט Rubik לשיפור הקריאות והתאמה למראה המודרני -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">תלמיד 6
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- ייבוא Font Awesome לאייקונים -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* הגדרת משתני CSS עבור צבעים ואנימציות */
         :root {
             --primary: #25D366; /* ירוק ווטסאפ */
             --primary-dark: #128C7E; /* ירוק ווטסאפ כהה */
@@ -206,8 +210,15 @@
             margin-bottom: 30px;
         }
 
+        /* 4 כפתורים בשורה למסכים רחבים מאוד */
+        @media (min-width: 992px) { /* נקודת שבירה חדשה ל-4 כפתורים */
+            .buttons-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
         /* 3 כפתורים בשורה למסכים גדולים יותר */
-        @media (min-width: 768px) {
+        @media (min-width: 768px) and (max-width: 991px) {
             .buttons-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -1361,7 +1372,7 @@
             <div class="popup-content">
                 <!-- כרטיס סניף התלמיד 6 -->
                 <div class="branch-card">
-                    <iframe class="branch-map" src="https://g.co/kgs/PzsJC5K"" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe class="branch-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.3245342509334!2d34.89983887573536!3d32.15740511747278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d38257da6385b%3A0x34b1c300a0e4570b!2z15zXqNeZINeo15XXmdeaINeV16HXmdeZICzXldeq15nXlCDXqtei16jXmdeU16jXldec15Qg15XXl9eU!5e0!3m2!1sen!2sil!4v1707823456789" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="branch-info">
                         <h3 class="branch-name">
                             <i class="fas fa-store"></i>
@@ -1379,7 +1390,7 @@
                             <i class="fas fa-truck"></i>
                             <span>שירות הובלות: עד 500 טון, מנופים עד 100 מטר</span>
                         </div>
-                        <button class="branch-button" onclick="window.open('https://g.co/kgs/PzsJC5K', '_blank')">
+                        <button class="branch-button" onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=32.1574051,34.9024138', '_blank')">
                             <span>נווט לסניף</span>
                             <i class="fas fa-directions"></i>
                         </button>
@@ -1387,7 +1398,7 @@
                 </div>
                 <!-- כרטיס סניף החרש 10 -->
                 <div class="branch-card">
-                    <iframe class="branch-map" src="https://g.co/kgs/6T7kau3" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe class="branch-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.3288500412585!2d34.8998426155857!3d32.15720128011981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d382571234567%3A0xa1b2c3d4e5f67890!2sHaHarash%2010%2C%20Hod%20HaSharon!5e0!3m2!1sen!2sil!4v1707823456789" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="branch-info">
                         <h3 class="branch-name">
                             <i class="fas fa-store"></i>
@@ -1405,7 +1416,7 @@
                             <i class="fas fa-warehouse"></i>
                             <span>איסוף עצמי: חומרים לכל סוגי הבנייה</span>
                         </div>
-                        <button class="branch-button" onclick="window.open('https://g.co/kgs/6T7kau3', '_blank')">
+                        <button class="branch-button" onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=32.1572013,34.9020174', '_blank')">
                             <span>נווט לסניף</span>
                             <i class="fas fa-directions"></i>
                         </button>
@@ -1422,7 +1433,7 @@
             'רוצה 🚚 להזמין מכולה 8 קוב',
             'שלום 🚚, רוצה להחליף את המכולה שיש לי כרגע',
             'שלום 🚚 אנו רוצה להוציא את המכולה מהאתר',
-            'מתי צפוי הנהג להגיע לאתר?�',
+            'מתי צפוי הנהג להגיע לאתר?📍',
             'מה הסטטוס של הזמנה מס',
             'יש הערה על ההזמנה האחרונה.',
             'צריך לדבר עם נציג על בעיה',
@@ -1431,14 +1442,14 @@
             'אפשר לשנות כתובת למשלוח?📍',
             'שאלה לגבי החשבונית האחרונה.',
             'תעצור 🛑 את ההזמנה עד להודעה חדשה ממני בבקשה',
-            'שלום, מעוניין להזמין מנוף.', // נוסף: הצעת מנוף
-            'שלום, מעוניין להזמין משאית.', // נוסף: הצעת משאית
-            'שלום, מעוניין להציב מכולה.', // נוסף: הצעת הצבת מכולה
-            'שלום, מעוניין בפרטים על חומרי בניין.', // נוסף: הצעת חומרי בניין
-            'שלום, מעוניין בפרטים על מוצרי איטום.', // נוסף: הצעת מוצרי איטום
-            'שלום, מעוניין בפרטים על צבעים וכלים סניטריים.', // נוסף: הצעת צבעים
-            'שלום, מעוניין בפרטים על מרצפות ועץ לבניין.', // נוסף: הצעת מרצפות
-            'שלום, מעוניין בפרטים על חומרי ניקיון במבצע.' // נוסף: הצעת חומרי ניקיון
+            'שלום, מעוניין להזמין מנוף.',
+            'שלום, מעוניין להזמין משאית.',
+            'שלום, מעוניין להציב מכולה.',
+            'שלום, מעוניין בפרטים על חומרי בניין.',
+            'שלום, מעוניין בפרטים על מוצרי איטום.',
+            'שלום, מעוניין בפרטים על צבעים וכלים סניטריים.',
+            'שלום, מעוניין בפרטים על מרצפות ועץ לבניין.',
+            'שלום, מעוניין בפרטים על חומרי ניקיון במבצע.'
         ];
 
         // אלמנטים של ה-Popup
@@ -1634,12 +1645,12 @@
             contactPersonInput.value = '';
 
             // הצגת טופס דינמי עבור סוגי הודעות ספציפיים
-            const showDynamicForm = ['order_crane', 'order_truck', 'place_container', 'product_query'].includes(messageType) ||
+            const showDynamicForm = ['order_crane', 'order_truck', 'place_container', 'product_query', 'new_order'].includes(messageType) ||
                                     message.includes('להזמין מנוף') || message.includes('להזמין משאית') ||
                                     message.includes('להציב מכולה') || message.includes('חומרי בניין') ||
                                     message.includes('מוצרי איטום') || message.includes('צבעים וכלים סניטריים') ||
                                     message.includes('מרצפות ועץ לבניין') || message.includes('חומרי ניקיון במבצע') ||
-                                    message.includes('הזמנה חדשה'); // גם להזמנה חדשה כללית
+                                    message.includes('הזמנה חדשה');
 
             if (showDynamicForm) {
                 dynamicFormSection.style.display = 'block';
@@ -1651,7 +1662,6 @@
                 } else if (messageType === 'order_crane' || message.includes('להזמין מנוף')) {
                     typeMessage(popupMessageText, "תמלא/י טופס בקשה להזמנת מנוף והוא כבר בדרך אליך.");
                 } else if (messageType === 'product_query' || message.includes('מעוניין בפרטים על')) {
-                    // יש לוודא שהכותרת תמיד תהיה בעברית נכונה
                     const productCategory = message.replace('שלום, מעוניין בפרטים על ', '').replace('.', '');
                     typeMessage(popupMessageText, `תמלא/י פרטים לבקשה בנושא: ${productCategory}.`);
                 } else if (message.includes('הזמנה חדשה')) {
@@ -1821,4 +1831,3 @@
     </script>
 </body>
 </html>
-�
