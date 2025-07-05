@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>קטלוג ח.סבן חומרי בניין - שדרוג מקצועי</title>
+    <!-- ייבוא פונט Rubik לשיפור הקריאות והתאמה למראה המודרני -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- ייבוא Font Awesome לאייקונים -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* הגדרת משתני CSS עבור צבעים ואנימציות */
+        :root {
+            --primary: #25D366; /* ירוק ווטסאפ */
+            --primary-dark: #128C7E; /* ירוק ווטסאפ כהה */
+            --accent: #FFD700; /* זהב/צהוב הדגשה */
+            --neon-blue: #00f2ff;
+            --neon-green: #00ff9d;
+            --neon-orange: #ff7b00;
+            --neon-purple: #bd00ff;
+            --neon-red: #ff0055; /* חדש: אדום ניאון */
+            --neon-yellow: #ffee00; /* חדש: צהוב ניאון */
+            --neon-cyan: #00eeff; /* חדש: כחול-ירוק ניאון */
+            --neon-magenta: #ff00ee; /* חדש: מג'נטה ניאון */
+            --neon-lime: #aaff00; /* חדש: ירוק ליים ניאון */
+            --dark-bg: #1a1a1a; /* רקע כהה ראשי */
+            --light-bg: #f0f8ff; /* רקע בהיר משני (כחול בהיר מאוד) */
+            --card-dark: #2a2a2a; /* רקע כרטיס כהה */
+            --card-light: #ffffff; /* רקע כרטיס בהיר */
+            --border-dark: rgba(255, 255, 255, 0.1); /* גבול כהה */
+            --border-light: rgba(0, 0, 0, 0.1); /* גבול בהיר */
+            --text-dark: #e0e0e0; /* טקסט בהיר על רקע כהה */
+            --text-light: #333333; /* טקסט כהה על רקע בהיר */
+            --shadow-dark: rgba(0, 0, 0, 0.6); /* צל כהה */
+            --shadow-light: rgba(0, 0, 0, 0.2); /* צל בהיר */
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* מעבר חלק */
+        }
+
+        /* איפוס ברירות מחדל של דפדפן */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* עיצוב גוף הדף - שילוב כהה ובהיר */
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0f0f0f 100%); /* רקע כהה עם מעבר */
+            color: var(--text-dark); /* צבע טקסט ברירת מחדל */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* יישור למעלה */
+            min-height: 100vh;
+            overflow-x: hidden; /* מונע גלילה אופקית */
+            padding: 20px; /* ריפוד כללי לדף */
+        }
+
+        /* קונטיינר ראשי המדמה מסך טלפון */
+        .phone-container {
+            width: 100%;
+            max-width: 420px; /* הגדלת רוחב מקסימלי */
+            min-height: calc(100vh - 40px); /* התאמה לגובה המסך */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 0 auto; /* ממורכז */
+        }
+
+        /* מסגרת הטלפון */
+        .phone {
+            width: 100%;
+            min-height: calc(100vh - 40px);
+            background: linear-gradient(145deg, #1e1e1e, #2a2a2a); /* רקע כהה יותר למסגרת */
+            border-radius: 36px; /* פינות מעוגלות יותר */
+            box-shadow: 0 25px 50px var(--shadow-dark); /* צל בולט יותר */
+            padding: 25px; /* ריפוד גדול יותר */
+            display: flex;
+            flex-direction: column;
+            border: 2px solid var(--border-dark); /* גבול כהה */
+            position: relative;
+            overflow: hidden; /* לוודא שהתוכן לא יוצא מהמסגרת */
+        }
+
+        /* חריץ עליון (notch) */
+        .phone::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px; /* רוחב גדול יותר */
+            height: 28px; /* גובה גדול יותר */
+            background: #101010;
+            border-radius: 0 0 25px 25px;
+            box-shadow: inset 0 -6px 12px rgba(0,0,0,0.6);
+            z-index: 10;
+        }
+
+        /* פס תחתון (home indicator) */
+        .phone::after {
+            content: '';
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 7px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 7px;
+            z-index: 10;
+        }
+
+        /* אזור התוכן הניתן לגלילה */
+        .screen {
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.98), rgba(40, 40, 40, 0.98)); /* רקע כהה שקוף */
+            border-radius: 24px; /* פינות מעוגלות */
+            flex: 1;
+            padding: 20px; /* ריפוד פנימי */
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; /* גלילה אנכית */
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.8); /* צל פנימי */
+            border: 1px solid rgba(255,255,255,0.1); /* גבול עדין */
+            backdrop-filter: blur(15px); /* אפקט טשטוש */
+            -webkit-overflow-scrolling: touch; /* גלילה חלקה ב-iOS */
+        }
+
+        /* פס סטטוס עליון */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 12px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* קונטיינר ללוגו ושם האפליקציה */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 15px 0 30px;
+            position: relative;
+        }
+
+        /* עיצוב הלוגו */
+        .logo {
+            width: 130px;
+            height: 130px;
+            background-image: url('https://i.postimg.cc/NjhWzHjM/1000101077.jpg'); /* תמונת לוגו */
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            border: 4px solid var(--accent); /* גבול בצבע הדגשה */
+            box-shadow: 0 0 25px var(--accent), inset 0 0 10px var(--accent); /* צל והארה */
+            margin-bottom: 18px;
+            animation: float 5s ease-in-out infinite; /* אנימציית ריחוף */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* אנימציית ריחוף */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* שם האפליקציה */
+        .app-name {
+            font-size: 26px; /* גודל פונט גדול יותר */
+            font-weight: 800; /* מודגש במיוחד */
+            color: white;
+            margin-bottom: 8px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* צל טקסט עדין */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* קו תחתון לשם האפליקציה */
+        .app-name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        /* כותרת משנה */
+        .app-subtitle {
+            font-size: 15px;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* קונטיינר לכפתורים - גריד עם הפרדות */
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* ברירת מחדל רספונסיבית */
+            gap: 15px; /* רווח בין הכפתורים */
+            margin-bottom: 30px;
+        }
+
+        /* 3 כפתורים בשורה למסכים גדולים יותר */
+        @media (min-width: 768px) {
+            .buttons-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* 2 כפתורים בשורה למסכים בינוניים */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .buttons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* כפתור אחד בשורה למסכים קטנים מאוד */
+        @media (max-width: 480px) {
+            .buttons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* עיצוב כפתורים בסגנון "זכוכית ניאון" */
+        .btn {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 18px; /* ריפוד גדול יותר */
+            border-radius: 20px; /* פינות מעוגלות יותר */
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.3)); /* רקע זכוכית */
+            border: 1px solid; /* גבול דינמי */
+            color: white;
+            font-weight: 600; /* מודגש יותר */
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.1); /* צל כפול */
+            backdrop-filter: blur(15px); /* טשטוש חזק יותר */
+            min-height: 100px; /* גובה מינימלי */
+            cursor: pointer;
+            overflow: hidden; /* לוודא שאפקטים לא יוצאים */
+            z-index: 1;
+            text-align: center; /* יישור טקסט במרכז */
+        }
+
+        /* אפקט הברקה על ריחוף */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-20deg);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-8px) scale(1.02); /* ריחוף והגדלה קלה */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* אייקון בתוך הכפתור */
+        .btn-icon {
+            font-size: 26px; /* גודל אייקון גדול יותר */
+            margin-bottom: 10px;
+            transition: var(--transition);
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); /* צל לאייקון */
+        }
+
+        .btn:hover .btn-icon {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px white);
+        }
+
+        /* טקסט הכפתור */
+        .btn-text {
+            font-size: 15px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.3;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        /* צבעי ניאון לכפתורים קיימים */
+        .btn-primary { border-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0, 242, 255, 0.5); }
+        .btn-primary:hover { box-shadow: 0 0 35px rgba(0, 242, 255, 0.8); }
+        .btn-secondary { border-color: var(--neon-green); box-shadow: 0 0 20px rgba(0, 255, 157, 0.5); }
+        .btn-secondary:hover { box-shadow: 0 0 35px rgba(0, 255, 157, 0.8); }
+        .btn-orange { border-color: var(--neon-orange); box-shadow: 0 0 20px rgba(255, 123, 0, 0.5); }
+        .btn-orange:hover { box-shadow: 0 0 35px rgba(255, 123, 0, 0.8); }
+        .btn-purple { border-color: var(--neon-purple); box-shadow: 0 0 20px rgba(189, 0, 255, 0.5); }
+        .btn-purple:hover { box-shadow: 0 0 35px rgba(189, 0, 255, 0.8); }
+        .btn-accent { border-color: var(--accent); box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+        .btn-accent:hover { box-shadow: 0 0 35px rgba(255, 215, 0, 0.8); }
+        .btn-whatsapp { border-color: var(--primary); box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); }
+        .btn-whatsapp:hover { box-shadow: 0 0 35px rgba(37, 211, 102, 0.8); }
+
+        /* צבעי ניאון חדשים לכפתורים נוספים */
+        .btn-neon-red { border-color: var(--neon-red); box-shadow: 0 0 20px rgba(255, 0, 85, 0.5); }
+        .btn-neon-red:hover { box-shadow: 0 0 35px rgba(255, 0, 85, 0.8); }
+        .btn-neon-yellow { border-color: var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 238, 0, 0.5); }
+        .btn-neon-yellow:hover { box-shadow: 0 0 35px rgba(255, 238, 0, 0.8); }
+        .btn-neon-cyan { border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 238, 255, 0.5); }
+        .btn-neon-cyan:hover { box-shadow: 0 0 35px rgba(0, 238, 255, 0.8); }
+        .btn-neon-magenta { border-color: var(--neon-magenta); box-shadow: 0 0 20px rgba(255, 0, 238, 0.5); }
+        .btn-neon-magenta:hover { box-shadow: 0 0 35px rgba(255, 0, 238, 0.8); }
+        .btn-neon-lime { border-color: var(--neon-lime); box-shadow: 0 0 20px rgba(170, 255, 0, 0.5); }
+        .btn-neon-lime:hover { box-shadow: 0 0 35px rgba(170, 255, 0, 0.8); }
+
+
+        /* תיבת הודעות חכמה */
+        .messages-container {
+            background: linear-gradient(135deg, rgba(35, 35, 35, 0.98), rgba(45, 45, 45, 0.98));
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 8px 25px var(--shadow-dark);
+            backdrop-filter: blur(12px);
+            margin-top: 25px;
+        }
+
+        .messages-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .messages-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+        }
+
+        .messages-title i {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        .show-messages-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .show-messages-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+        }
+
+        .messages-list {
+            display: none;
+            max-height: 220px; /* גובה מקסימלי לרשימה */
+            overflow-y: auto;
+            margin-bottom: 15px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) rgba(255,255,255,0.1);
+            padding-left: 5px; /* ריפוד קל לגלילה */
+            padding-right: 5px;
+        }
+
+        .messages-list.show {
+            display: block;
+        }
+
+        /* סקרוולבר מותאם אישית */
+        .messages-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .messages-list::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+
+        .messages-list::-webkit-scrollbar-thumb {
+            background-color: var(--accent);
+            border-radius: 10px;
+        }
+
+        .message-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .message-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-left: 4px solid var(--accent);
+            transform: translateX(-5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .message-item span {
+            flex-grow: 1;
+        }
+
+        .message-input-container {
+            display: flex;
+            gap: 12px;
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .message-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            border-radius: 25px;
+            padding: 14px 20px;
+            color: white;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+            outline: none;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .message-input:focus {
+            outline: 2px solid var(--accent); /* הבלטה בפוקוס */
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(255,255,255,0.2), inset 0 0 8px rgba(255,255,255,0.1);
+        }
+
+        /* סמן כתיבה מהבהב */
+        .message-input::after {
+            content: '|';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            animation: blink 1s step-end infinite;
+            display: none;
+        }
+
+        .message-input:focus::after {
+            display: block;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(40, 40, 40, 0.95);
+            border-radius: 15px;
+            margin-top: 8px;
+            max-height: 120px;
+            overflow-y: auto;
+            display: none;
+            z-index: 10;
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .suggestions.show {
+            display: block;
+        }
+
+        .suggestion-item {
+            padding: 12px 18px;
+            font-size: 15px;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .suggestion-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .send-btn {
+            background: var(--primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .send-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.08);
+        }
+
+        .instructions {
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 16px;
+            padding: 18px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            font-size: 15px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .instructions-title {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .instructions-title i {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+
+        .instructions p {
+            margin-bottom: 8px;
+            padding-right: 15px;
+            position: relative;
+        }
+
+        .instructions p::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: var(--accent);
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        /* חלונות קופצים (Popups) - עיצוב מתקדם ולא חוסם */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95); /* רקע כהה מאוד ושקוף */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(18px); /* טשטוש חזק יותר */
+        }
+
+        .popup-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .popup-container {
+            background: linear-gradient(135deg, var(--card-dark) 0%, #3a3a3a 100%); /* רקע כהה עם מעבר */
+            border-radius: 25px; /* פינות מעוגלות יותר */
+            width: 95%;
+            max-width: 450px; /* רוחב מקסימלי גדול יותר */
+            padding: 30px; /* ריפוד גדול יותר */
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8); /* צל עמוק יותר */
+            transform: translateY(50px) scale(0.9); /* אנימציית כניסה */
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease-out;
+            border: 2px solid var(--border-dark);
+            backdrop-filter: blur(15px);
+            position: relative; /* עבור כפתור סגירה */
+            max-height: 90vh; /* גובה מקסימלי כדי למנוע חריגה מהמסך */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup-overlay.show .popup-container {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .popup-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .popup-title i {
+            margin-left: 12px;
+            font-size: 24px;
+        }
+
+        .close-popup {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 28px; /* גודל אייקון סגירה גדול יותר */
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .close-popup:hover {
+            color: white;
+            transform: scale(1.2) rotate(90deg); /* סיבוב על ריחוף */
+            background: rgba(255,255,255,0.1);
+        }
+
+        .popup-content {
+            flex-grow: 1; /* יאפשר לתוכן לתפוס את השטח הזמין */
+            overflow-y: auto; /* גלילה פנימית לתוכן הפופאפ */
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) rgba(255,255,255,0.1);
+            padding-right: 5px; /* כדי שהסקרוולבר לא יסתיר תוכן */
+        }
+
+        .popup-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .popup-content::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+
+        .popup-content::-webkit-scrollbar-thumb {
+            background-color: var(--accent);
+            border-radius: 10px;
+        }
+
+        .whatsapp-message {
+            background: rgba(37, 211, 102, 0.15); /* רקע ירוק ווטסאפ שקוף */
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(37, 211, 102, 0.4);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .message-text {
+            font-size: 16px;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .message-text.typing::after {
+            content: '|';
+            position: absolute;
+            color: var(--accent);
+            animation: blink 1s step-end infinite;
+        }
+
+        .message-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.25);
+        }
+
+        .section-title {
+            font-weight: 700;
+            color: var(--neon-blue); /* צבע כחול ניאון לכותרות סעיפים */
+            font-size: 17px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        .section-content {
+            font-size: 15px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* סקשן טופס דינמי */
+        .dynamic-form-section {
+            display: none; /* מוסתר כברירת מחדל */
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.25);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            font-size: 15px;
+            transition: var(--transition);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+            outline: none;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="tel"]:focus {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 10px rgba(255,255,255,0.3), inset 0 0 5px rgba(255,255,255,0.1);
+            border-color: var(--neon-blue);
+        }
+
+        .popup-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .popup-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 15px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-btn i {
+            margin-left: 8px;
+            font-size: 1.1em;
+        }
+
+        .popup-btn-copy {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .popup-btn-copy:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-btn-send {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .popup-btn-send:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* עיצוב כרטיסי סניפים */
+        .branch-card {
+            background: var(--card-light); /* רקע בהיר לכרטיס סניף */
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 8px 25px var(--shadow-light);
+            overflow: hidden; /* לוודא שהמפה לא חורגת */
+            color: var(--text-light); /* טקסט כהה על רקע בהיר */
+        }
+
+        .branch-map {
+            height: 200px; /* גובה מפה גדול יותר */
+            width: 100%;
+            border: none;
+            display: block;
+        }
+
+        .branch-info {
+            padding: 25px;
+        }
+
+        .branch-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #004d40; /* ירוק כהה לכותרת סניף */
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .branch-name i {
+            margin-left: 10px;
+            font-size: 22px;
+            color: var(--accent);
+        }
+
+        .branch-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .branch-detail i {
+            margin-left: 12px;
+            color: #00796b; /* ירוק טורקיז לאייקונים */
+            min-width: 20px;
+            font-size: 1.1em;
+        }
+
+        .branch-detail a {
+            color: #005f52; /* צבע קישור ירוק כהה */
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .branch-detail a:hover {
+            color: #004d40;
+            text-decoration: underline;
+        }
+
+        .branch-button {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32); /* ירוק כהה לכפתור ניווט */
+            color: white;
+            padding: 14px;
+            margin-top: 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .branch-button i {
+            margin-left: 10px;
+            font-size: 1.2em;
+        }
+
+        .branch-button:hover {
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* רספונסיביות למסכים קטנים */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .phone-container {
+                min-height: calc(100vh - 20px);
+            }
+
+            .phone {
+                border-radius: 30px;
+                padding: 20px;
+            }
+
+            .phone::before {
+                width: 100px;
+                height: 22px;
+            }
+
+            .phone::after {
+                width: 80px;
+                height: 5px;
+            }
+
+            .screen {
+                border-radius: 20px;
+                padding: 15px;
+            }
+
+            .logo {
+                width: 110px;
+                height: 110px;
+                margin-bottom: 15px;
+            }
+
+            .app-name {
+                font-size: 22px;
+            }
+
+            .app-subtitle {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .buttons-grid {
+                grid-template-columns: 1fr; /* עמודה אחת במובייל */
+                gap: 12px;
+            }
+
+            .btn {
+                padding: 15px;
+                min-height: 90px;
+                border-radius: 18px;
+            }
+
+            .btn-icon {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            .btn-text {
+                font-size: 14px;
+            }
+
+            .messages-container {
+                padding: 15px;
+                border-radius: 18px;
+            }
+
+            .messages-title {
+                font-size: 16px;
+            }
+
+            .message-item {
+                padding: 10px 15px;
+                font-size: 14px;
+                margin-bottom: 8px;
+                border-radius: 12px;
+            }
+
+            .message-input {
+                padding: 12px 18px;
+                font-size: 14px;
+            }
+
+            .send-btn {
+                width: 45px;
+                height: 45px;
+            }
+
+            .instructions {
+                padding: 15px;
+                font-size: 14px;
+                border-radius: 14px;
+            }
+
+            .instructions-title {
+                font-size: 15px;
+            }
+
+            .popup-container {
+                padding: 25px 20px;
+                border-radius: 20px;
+            }
+
+            .popup-title {
+                font-size: 20px;
+            }
+
+            .close-popup {
+                font-size: 26px;
+            }
+
+            .whatsapp-message {
+                padding: 20px;
+                border-radius: 18px;
+            }
+
+            .message-text {
+                font-size: 15px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .section-content {
+                font-size: 14px;
+            }
+
+            .form-group label {
+                font-size: 13px;
+            }
+            .form-group input {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+
+            .popup-actions {
+                flex-direction: column; /* כפתורים אחד מתחת לשני */
+                gap: 10px;
+            }
+
+            .popup-btn {
+                padding: 12px;
+                font-size: 14px;
+                border-radius: 12px;
+            }
+
+            .branch-card {
+                border-radius: 18px;
+            }
+
+            .branch-map {
+                height: 180px;
+            }
+
+            .branch-info {
+                padding: 20px;
+            }
+
+            .branch-name {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+
+            .branch-detail {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .branch-button {
+                padding: 12px;
+                font-size: 15px;
+                border-radius: 12px;
+            }
+        }
+
+        /* רספונסיביות למסכים קטנים מאוד */
+        @media (max-width: 360px) {
+            .phone {
+                padding: 15px;
+            }
+            .screen {
+                padding: 10px;
+            }
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+            .app-name {
+                font-size: 20px;
+            }
+            .btn {
+                min-height: 80px;
+                padding: 12px;
+            }
+            .btn-icon {
+                font-size: 22px;
+            }
+            .btn-text {
+                font-size: 13px;
+            }
+            .message-input {
+                padding: 10px 15px;
+            }
+            .send-btn {
+                width: 40px;
+                height: 40px;
+            }
+            .popup-container {
+                padding: 20px 15px;
+            }
+            .branch-map {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- קונטיינר ראשי המדמה מסך טלפון -->
+    <div class="phone-container">
+        <div class="phone">
+            <div class="screen">
+                <!-- פס סטטוס עליון -->
+                <div class="status-bar">
+                    <span>9:41</span>
+                    <span>📶 100% 🔋</span>
+                </div>
+
+                <!-- לוגו וכותרת האפליקציה -->
+                <div class="logo-container">
+                    <div class="logo"></div>
+                    <h1 class="app-name">מחלקת הזמנות ח.סבן חומרי בניין</h1>
+                    <div class="app-subtitle">שירות הזמנות מהיר ומקצועי</div>
+                </div>
+
+                <!-- כפתורי ניווט ראשיים - גריד עם עיצוב משודרג -->
+                <div class="buttons-grid">
+                    <a href="https://rami1125.github.io/Saban94/" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-bolt btn-icon"></i>
+                        <div class="btn-text">הזמנה מהירה</div>
+                    </a>
+
+                    <a href="https://did.li/fwj6q" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-pencil-ruler btn-icon"></i>
+                        <div class="btn-text">טופס הצטרפות לקוח</div>
+                    </a>
+
+                    <!-- כפתורים שהוחזרו/נוספו -->
+                    <button class="btn btn-neon-red" data-message-type="order_crane" data-initial-message="שלום, מעוניין להזמין מנוף.">
+                        <i class="fas fa-truck-loading btn-icon"></i>
+                        <div class="btn-text">הזמנת מנוף</div>
+                    </button>
+
+                    <button class="btn btn-neon-yellow" data-message-type="order_truck" data-initial-message="שלום, מעוניין להזמין משאית.">
+                        <i class="fas fa-truck-moving btn-icon"></i>
+                        <div class="btn-text">הזמנת משאית</div>
+                    </button>
+
+                    <button class="btn btn-neon-cyan" data-message-type="place_container" data-initial-message="שלום, מעוניין להציב מכולה.">
+                        <i class="fas fa-dumpster btn-icon"></i>
+                        <div class="btn-text">הצבת מכולה</div>
+                    </button>
+
+                    <a href="https://did.li/8B3TY" class="btn btn-orange" target="_blank">
+                        <i class="fas fa-trash-alt btn-icon"></i>
+                        <div class="btn-text">פינוי פסולת</div>
+                    </a>
+
+                    <button class="btn btn-neon-magenta" data-message-type="product_query" data-initial-message="שלום, מעוניין בפרטים על חומרי בניין.">
+                        <i class="fas fa-hard-hat btn-icon"></i>
+                        <div class="btn-text">חומרי בניין</div>
+                    </button>
+
+                    <button class="btn btn-neon-lime" data-message-type="product_query" data-initial-message="שלום, מעוניין בפרטים על מוצרי איטום.">
+                        <i class="fas fa-tint btn-icon"></i>
+                        <div class="btn-text">מוצרי איטום</div>
+                    </button>
+
+                    <button class="btn btn-primary" data-message-type="product_query" data-initial-message="שלום, מעוניין בפרטים על צבעים וכלים סניטריים.">
+                        <i class="fas fa-paint-roller btn-icon"></i>
+                        <div class="btn-text">צבעים וכלים סניטריים</div>
+                    </button>
+
+                    <button class="btn btn-secondary" data-message-type="product_query" data-initial-message="שלום, מעוניין בפרטים על מרצפות ועץ לבניין.">
+                        <i class="fas fa-tree btn-icon"></i>
+                        <div class="btn-text">מרצפות ועץ לבניין</div>
+                    </button>
+
+                    <button class="btn btn-orange" data-message-type="product_query" data-initial-message="שלום, מעוניין בפרטים על חומרי ניקיון במבצע.">
+                        <i class="fas fa-broom btn-icon"></i>
+                        <div class="btn-text">חומרי ניקיון במבצע</div>
+                    </button>
+
+                    <a href="https://did.li/BVEZH" class="btn btn-purple" target="_blank">
+                        <i class="fas fa-hard-hat btn-icon"></i>
+                        <div class="btn-text">ייעוץ מקצועי</div>
+                    </a>
+
+                    <button class="btn btn-accent" id="branchesBtn">
+                        <i class="fas fa-map-marker-alt btn-icon"></i>
+                        <div class="btn-text">סניפים</div>
+                    </button>
+
+                    <button class="btn btn-whatsapp" id="contactBtn">
+                        <i class="fab fa-whatsapp btn-icon"></i>
+                        <div class="btn-text">צור קשר</div>
+                    </button>
+                </div>
+
+                <!-- תיבת הודעות חכמה עם אפשרויות שליחה -->
+                <div class="messages-container">
+                    <div class="messages-header">
+                        <div class="messages-title">
+                            <i class="fas fa-comment-dots"></i>
+                            הודעות מהירות
+                        </div>
+                        <button class="show-messages-btn">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+                    <div class="messages-list" id="messagesList">
+                        <div class="message-item" data-message="שלום ✋, מעוניין להזמין חומרים."><span>📦 הזמנה חדשה</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="מתי צפוי הנהג להגיע לאתר?"><span>📍 צפי הגעה</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="מה הסטטוס של הזמנה מס' 12345?"><span>📋 סטטוס הזמנה</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="יש הערה על ההזמנה האחרונה."><span>📝 הערת הזמנה</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="צריך לדבר עם נציג על בעיה בהזמנה."><span>📞 פנייה לנציג</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="האם תוכלו לשלוח הצעת מחיר?"><span>💰 הצעת מחיר</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="רוצה 🚚 להזמין מכולה 8 קוב"><span>🚚 הזמנת מכולה</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="אפשר לשנות כתובת למשלוח?"><span>📍 שינוי כתובת</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="שאלה לגבי החשבונית האחרונה."><span>🧾 שאלת חשבונית</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="אשמח לעדכונים על מבצעים חדשים."><span>🔥 עדכוני מבצעים</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="רוצה לשלוח לכם מיקום מדויק להעביר לנהג 📍"><span>📡 שליחת מיקום</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="תעצור 🛑 את ההזמנה עד להודעה חדשה ממני בבקשה"><span>🛑 עצירת הזמנה</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="שלום 🚚, רוצה להחליף את המכולה שיש לי כרגע"><span>🔄 החלפת מכולה</span><i class="fas fa-chevron-left"></i></div>
+                        <div class="message-item" data-message="שלום 🚚 אנו רוצה להוציא את המכולה מהאתר"><span>🏁 פינוי מכולה</span><i class="fas fa-chevron-left"></i></div>
+                    </div>
+
+                    <div class="message-input-container">
+                        <input type="text" class="message-input" placeholder="כתוב הודעה אישית..." id="customMessage">
+                        <div class="suggestions" id="suggestions"></div>
+                        <button class="send-btn" id="sendMessageBtn">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+
+                    <div class="instructions">
+                        <div class="instructions-title">
+                            <i class="fas fa-info-circle"></i>
+                            הנחיות שימוש
+                        </div>
+                        <p>בחר הודעה או כתוב הודעה אישית</p>
+                        <p>לחץ על כפתור הוואטסאפ לשליחה</p>
+                        <p>תועבר לצ'אט עם מחלקת ההזמנות</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- חלון קופץ להודעות וואטסאפ - עיצוב מחודש -->
+    <div class="popup-overlay" id="messagePopup">
+        <div class="popup-container">
+            <div class="popup-header">
+                <div class="popup-title">
+                    <i class="fab fa-whatsapp"></i>
+                    הודעה למחלקת הזמנות
+                </div>
+                <button class="close-popup" id="closePopup">×</button>
+            </div>
+
+            <div class="popup-content">
+                <div class="whatsapp-message">
+                    <div class="message-text" id="popupMessageText"></div>
+
+                    <!-- סקשן טופס דינמי - מוסתר כברירת מחדל -->
+                    <div class="dynamic-form-section" id="dynamicFormSection">
+                        <div class="section-title">
+                            <i class="fas fa-file-alt"></i>
+                            פרטי בקשה:
+                        </div>
+                        <div class="form-group">
+                            <label for="customerNameInput">שם לקוח:</label>
+                            <input type="text" id="customerNameInput" placeholder="הכנס/י שם מלא" autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryAddressInput">כתובת אספקה:</label>
+                            <input type="text" id="deliveryAddressInput" placeholder="רחוב, מספר בית, עיר" autocomplete="street-address">
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumberInput">טלפון:</label>
+                            <input type="tel" id="phoneNumberInput" placeholder="הכנס/י מספר טלפון" autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPersonInput">שם איש קשר לקבלת הנהג:</label>
+                            <input type="text" id="contactPersonInput" placeholder="שם איש קשר באתר" autocomplete="on">
+                        </div>
+                    </div>
+
+                    <div class="message-section" id="customerSection" style="display: none;">
+                        <div class="section-title">
+                            <i class="fas fa-user"></i>
+                            פרטי לקוח:
+                        </div>
+                        <div class="section-content" id="customerDetails"></div>
+                    </div>
+                    <div class="message-section" id="deliverySection" style="display: none;">
+                        <div class="section-title">
+                            <i class="fas fa-truck"></i>
+                            פרטי אספקה:
+                        </div>
+                        <div class="section-content" id="deliveryDetails"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popup-actions">
+                <button class="popup-btn popup-btn-copy" id="copyMessageBtn">
+                    העתק הודעה
+                    <i class="far fa-copy"></i>
+                </button>
+                <button class="popup-btn popup-btn-send" id="sendWhatsappBtn">
+                    שלח לוואטסאפ
+                    <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- חלון קופץ לסניפים - עיצוב מחודש עם מפות וכפתורי ניווט -->
+    <div class="popup-overlay" id="branchesPopup">
+        <div class="popup-container">
+            <div class="popup-header">
+                <div class="popup-title">
+                    <i class="fas fa-map-marked-alt"></i>
+                    סניפי החברה
+                </div>
+                <button class="close-popup" id="closeBranchesPopup">×</button>
+            </div>
+
+            <div class="popup-content">
+                <!-- כרטיס סניף התלמיד 6 -->
+                <div class="branch-card">
+                    <iframe class="branch-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.3245342509334!2d34.89983887573536!3d32.15740511747278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d38257da6385b%3A0x34b1c300a0e4570b!2z15zXqNeZINeo15XXmdeaINeV16HXmdeZICzXldeq15nXlCDXqtei16jXmdeU16jXldec15Qg15XXl9eU!5e0!3m2!1sen!2sil!4v1707823456789" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="branch-info">
+                        <h3 class="branch-name">
+                            <i class="fas fa-store"></i>
+                            סניף הוד השרון - התלמיד 6
+                        </h3>
+                        <div class="branch-detail">
+                            <i class="fas fa-phone"></i>
+                            <span>טלפון: <a href="tel:09-7602010">09-7602010</a></span>
+                        </div>
+                        <div class="branch-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>שעות פעילות: א'-ה': 06:00-18:00, ו': 06:00-14:00</span>
+                        </div>
+                        <div class="branch-detail">
+                            <i class="fas fa-truck"></i>
+                            <span>שירות הובלות: עד 500 טון, מנופים עד 100 מטר</span>
+                        </div>
+                        <button class="branch-button" onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=32.1574051,34.9024138', '_blank')">
+                            <span>נווט לסניף</span>
+                            <i class="fas fa-directions"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- כרטיס סניף החרש 10 -->
+                <div class="branch-card">
+                    <iframe class="branch-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.3288500412585!2d34.8998426155857!3d32.15720128011981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d382571234567%3A0xa1b2c3d4e5f67890!2sHaHarash%2010%2C%20Hod%20HaSharon!5e0!3m2!1sen!2sil!4v1707823456789" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="branch-info">
+                        <h3 class="branch-name">
+                            <i class="fas fa-store"></i>
+                            סניף הוד השרון - החרש 10
+                        </h3>
+                        <div class="branch-detail">
+                            <i class="fas fa-phone"></i>
+                            <span>טלפון: <a href="tel:09-7402575">09-7402575</a></span>
+                        </div>
+                        <div class="branch-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>שעות פעילות: א'-ה': 06:30-16:00, ו': 06:30-13:30</span>
+                        </div>
+                        <div class="branch-detail">
+                            <i class="fas fa-warehouse"></i>
+                            <span>איסוף עצמי: חומרים לכל סוגי הבנייה</span>
+                        </div>
+                        <button class="branch-button" onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=32.1572013,34.9020174', '_blank')">
+                            <span>נווט לסניף</span>
+                            <i class="fas fa-directions"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // נתוני הצעות הודעה
+        const suggestionsData = [
+            'שלום ✋, מעוניין להזמין חומרים.',
+            'רוצה 🚚 להזמין מכולה 8 קוב',
+            'שלום 🚚, רוצה להחליף את המכולה שיש לי כרגע',
+            'שלום 🚚 אנו רוצה להוציא את המכולה מהאתר',
+            'מתי צפוי הנהג להגיע לאתר?�',
+            'מה הסטטוס של הזמנה מס',
+            'יש הערה על ההזמנה האחרונה.',
+            'צריך לדבר עם נציג על בעיה',
+            'האם תוכלו לשלוח הצעת מחיר?',
+            'רוצה לשלוח לכם מיקום מדויק להעביר לנהג 📍',
+            'אפשר לשנות כתובת למשלוח?📍',
+            'שאלה לגבי החשבונית האחרונה.',
+            'תעצור 🛑 את ההזמנה עד להודעה חדשה ממני בבקשה',
+            'שלום, מעוניין להזמין מנוף.', // נוסף: הצעת מנוף
+            'שלום, מעוניין להזמין משאית.', // נוסף: הצעת משאית
+            'שלום, מעוניין להציב מכולה.', // נוסף: הצעת הצבת מכולה
+            'שלום, מעוניין בפרטים על חומרי בניין.', // נוסף: הצעת חומרי בניין
+            'שלום, מעוניין בפרטים על מוצרי איטום.', // נוסף: הצעת מוצרי איטום
+            'שלום, מעוניין בפרטים על צבעים וכלים סניטריים.', // נוסף: הצעת צבעים
+            'שלום, מעוניין בפרטים על מרצפות ועץ לבניין.', // נוסף: הצעת מרצפות
+            'שלום, מעוניין בפרטים על חומרי ניקיון במבצע.' // נוסף: הצעת חומרי ניקיון
+        ];
+
+        // אלמנטים של ה-Popup
+        const messagePopup = document.getElementById('messagePopup');
+        const popupMessageText = document.getElementById('popupMessageText');
+        const closePopup = document.getElementById('closePopup');
+        const dynamicFormSection = document.getElementById('dynamicFormSection');
+        const customerNameInput = document.getElementById('customerNameInput');
+        const deliveryAddressInput = document.getElementById('deliveryAddressInput');
+        const phoneNumberInput = document.getElementById('phoneNumberInput');
+        const contactPersonInput = document.getElementById('contactPersonInput');
+        const customerDetails = document.getElementById('customerDetails');
+        const deliveryDetails = document.getElementById('deliveryDetails');
+        const customerSection = document.getElementById('customerSection');
+        const deliverySection = document.getElementById('deliverySection');
+
+
+        // פונקציה להצגה/הסתרה של רשימת ההודעות המהירות
+        const showMessagesBtn = document.querySelector('.show-messages-btn');
+        const messagesList = document.getElementById('messagesList');
+
+        showMessagesBtn.addEventListener('click', function() {
+            messagesList.classList.toggle('show');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        });
+
+        // פונקציית אפקט הקלדה - תוקן עבור RTL
+        function typeMessage(element, text, speed = 40) {
+            element.classList.add('typing');
+            element.textContent = ''; // מנקה את התוכן הקיים
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    // שינוי: במקום להוסיף תו בתו, אנו מעדכנים את כל התוכן עד לתו הנוכחי
+                    // זה מבטיח שהדפדפן יטפל נכון בכיווניות ה-RTL בכל שלב
+                    element.textContent = text.substring(0, i + 1);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.classList.remove('typing');
+                }
+            }
+            type();
+        }
+
+        // פתיחת חלון קופץ של הודעה
+        // לחיצה על הודעות מהירות
+        const messageItems = document.querySelectorAll('.message-item');
+        messageItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const message = this.getAttribute('data-message');
+                typeMessage(popupMessageText, message);
+                messagePopup.classList.add('show');
+                analyzeMessage(message);
+            });
+        });
+
+        // לחיצה על כפתורים ששולחים הודעה (חדשים)
+        document.querySelectorAll('.btn[data-initial-message]').forEach(button => {
+            button.addEventListener('click', function() {
+                const initialMessage = this.getAttribute('data-initial-message');
+                const messageType = this.getAttribute('data-message-type');
+                typeMessage(popupMessageText, initialMessage); // הצגת ההודעה הראשונית
+                messagePopup.classList.add('show');
+                analyzeMessage(initialMessage, messageType); // העברת סוג ההודעה
+            });
+        });
+
+
+        closePopup.addEventListener('click', function() {
+            messagePopup.classList.remove('show');
+            popupMessageText.classList.remove('typing');
+            // איפוס שדות הטופס הדינמי
+            dynamicFormSection.style.display = 'none';
+            customerNameInput.value = '';
+            deliveryAddressInput.value = '';
+            phoneNumberInput.value = '';
+            contactPersonInput.value = '';
+            customerDetails.innerHTML = '';
+            deliveryDetails.innerHTML = '';
+            customerSection.style.display = 'none';
+            deliverySection.style.display = 'none';
+        });
+
+        // שליחת הודעה מותאמת אישית
+        const customMessageInput = document.getElementById('customMessage');
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        const suggestionsContainer = document.getElementById('suggestions');
+
+        sendMessageBtn.addEventListener('click', function() {
+            if (customMessageInput.value.trim() !== '') {
+                const message = customMessageInput.value;
+                typeMessage(popupMessageText, message);
+                messagePopup.classList.add('show');
+                analyzeMessage(message);
+                customMessageInput.value = '';
+                suggestionsContainer.classList.remove('show');
+            }
+        });
+
+        customMessageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessageBtn.click();
+            }
+        });
+
+        // הצעות טקסט חזויות (autocomplete)
+        customMessageInput.addEventListener('input', function() {
+            const input = this.value.toLowerCase();
+            suggestionsContainer.innerHTML = '';
+            if (input) {
+                const filteredSuggestions = suggestionsData.filter(s => s.toLowerCase().includes(input)); // שימוש ב-includes
+                filteredSuggestions.forEach(suggestion => {
+                    const div = document.createElement('div');
+                    div.className = 'suggestion-item';
+                    div.textContent = suggestion;
+                    div.addEventListener('click', () => {
+                        customMessageInput.value = suggestion;
+                        suggestionsContainer.classList.remove('show');
+                    });
+                    suggestionsContainer.appendChild(div);
+                });
+                suggestionsContainer.classList.toggle('show', filteredSuggestions.length > 0);
+            } else {
+                suggestionsContainer.classList.remove('show');
+            }
+        });
+
+        // העתקת הודעה ללוח הגזירים
+        const copyMessageBtn = document.getElementById('copyMessageBtn');
+
+        copyMessageBtn.addEventListener('click', function() {
+            const message = popupMessageText.textContent;
+            // שימוש ב-document.execCommand('copy') לתאימות טובה יותר ב-iframe
+            const textarea = document.createElement('textarea');
+            textarea.value = message;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            this.innerHTML = '<i class="fas fa-check ml-2"></i> הועתק!';
+            setTimeout(() => {
+                this.innerHTML = 'העתק הודעה <i class="far fa-copy"></i>';
+            }, 2000);
+        });
+
+        // שליחה לוואטסאפ
+        const sendWhatsappBtn = document.getElementById('sendWhatsappBtn');
+
+        sendWhatsappBtn.addEventListener('click', function() {
+            const phone = '972508860896'; // מספר טלפון של מחלקת הזמנות
+            let finalMessage = popupMessageText.textContent;
+
+            // הוספת פרטי הטופס אם הוא גלוי וממולא
+            if (dynamicFormSection.style.display === 'block') {
+                let formDetails = [];
+                if (customerNameInput.value.trim()) {
+                    formDetails.push(`שם לקוח: ${customerNameInput.value.trim()}`);
+                }
+                if (deliveryAddressInput.value.trim()) {
+                    formDetails.push(`כתובת אספקה: ${deliveryAddressInput.value.trim()}`);
+                }
+                if (phoneNumberInput.value.trim()) {
+                    formDetails.push(`טלפון: ${phoneNumberInput.value.trim()}`);
+                }
+                if (contactPersonInput.value.trim()) {
+                    formDetails.push(`איש קשר: ${contactPersonInput.value.trim()}`);
+                }
+
+                if (formDetails.length > 0) {
+                    finalMessage += "\n\n--- פרטי בקשה נוספים ---\n" + formDetails.join("\n");
+                }
+            }
+
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(finalMessage)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // ניתוח הודעה והצגת פרטים רלוונטיים בטופס
+        function analyzeMessage(message, messageType = null) {
+            // איפוס תצוגה
+            customerSection.style.display = 'none';
+            deliverySection.style.display = 'none';
+            customerDetails.innerHTML = '';
+            deliveryDetails.innerHTML = '';
+            dynamicFormSection.style.display = 'none'; // מוסתר כברירת מחדל
+            customerNameInput.value = '';
+            deliveryAddressInput.value = '';
+            phoneNumberInput.value = '';
+            contactPersonInput.value = '';
+
+            // הצגת טופס דינמי עבור סוגי הודעות ספציפיים
+            const showDynamicForm = ['order_crane', 'order_truck', 'place_container', 'product_query'].includes(messageType) ||
+                                    message.includes('להזמין מנוף') || message.includes('להזמין משאית') ||
+                                    message.includes('להציב מכולה') || message.includes('חומרי בניין') ||
+                                    message.includes('מוצרי איטום') || message.includes('צבעים וכלים סניטריים') ||
+                                    message.includes('מרצפות ועץ לבניין') || message.includes('חומרי ניקיון במבצע') ||
+                                    message.includes('הזמנה חדשה'); // גם להזמנה חדשה כללית
+
+            if (showDynamicForm) {
+                dynamicFormSection.style.display = 'block';
+                // אם זו הצבת מכולה, שנה את הכותרת ב-popupMessageText
+                if (messageType === 'place_container' || message.includes('להציב מכולה')) {
+                    typeMessage(popupMessageText, "תמלא/י טופס בקשה להצבת מכולה והיא כבר בדרך אליך.");
+                } else if (messageType === 'order_truck' || message.includes('להזמין משאית')) {
+                    typeMessage(popupMessageText, "תמלא/י טופס בקשה להזמנת משאית והיא כבר בדרך אליך.");
+                } else if (messageType === 'order_crane' || message.includes('להזמין מנוף')) {
+                    typeMessage(popupMessageText, "תמלא/י טופס בקשה להזמנת מנוף והוא כבר בדרך אליך.");
+                } else if (messageType === 'product_query' || message.includes('מעוניין בפרטים על')) {
+                    // יש לוודא שהכותרת תמיד תהיה בעברית נכונה
+                    const productCategory = message.replace('שלום, מעוניין בפרטים על ', '').replace('.', '');
+                    typeMessage(popupMessageText, `תמלא/י פרטים לבקשה בנושא: ${productCategory}.`);
+                } else if (message.includes('הזמנה חדשה')) {
+                    typeMessage(popupMessageText, "תמלא/י פרטים להזמנה חדשה.");
+                }
+            }
+
+
+            // ניתוח שם מהודעה ראשונית (אם קיים)
+            let nameMatch = message.match(/(אני|שמי|זה)\s+([^,\s]+)/);
+            if (nameMatch && nameMatch[2]) {
+                customerDetails.innerHTML += `<strong>שם:</strong> ${nameMatch[2].trim()}<br>`;
+                customerSection.style.display = 'block';
+                customerNameInput.value = nameMatch[2].trim(); // מילוי השדה בטופס
+            }
+
+            // ניתוח מספר הזמנה
+            let orderMatch = message.match(/(מספר הזמנה|הזמנה מס[']?)\s*(\d+)/);
+            if (orderMatch && orderMatch[2]) {
+                customerDetails.innerHTML += `<strong>מספר הזמנה:</strong> ${orderMatch[2].trim()}<br>`;
+                customerSection.style.display = 'block';
+            }
+
+            // ניתוח כתובת
+            let addressMatch = message.match(/(כתובת|לכתובת|למשלוח|בכתובת)\s+([^,\n]+)/);
+            if (addressMatch && addressMatch[2]) {
+                deliveryDetails.innerHTML += `<strong>כתובת:</strong> ${addressMatch[2].trim()}<br>`;
+                deliverySection.style.display = 'block';
+                deliveryAddressInput.value = addressMatch[2].trim(); // מילוי השדה בטופס
+            }
+
+            // ניתוח כמות/סוג מכולה
+            let containerMatch = message.match(/(מכולה)\s+(\d+)\s*(קוב)?/);
+            if (containerMatch && containerMatch[2]) {
+                deliveryDetails.innerHTML += `<strong>סוג מכולה:</strong> ${containerMatch[2].trim()} קוב<br>`;
+                deliverySection.style.display = 'block';
+            }
+
+            // ניתוח סוג פעולה (החלפה/פינוי/הצבה)
+            if (message.includes('להחליף את המכולה')) {
+                deliveryDetails.innerHTML += `<strong>פעולה:</strong> החלפת מכולה<br>`;
+                deliverySection.style.display = 'block';
+            }
+            if (message.includes('להוציא את המכולה') || message.includes('פינוי מכולה')) {
+                deliveryDetails.innerHTML += `<strong>פעולה:</strong> פינוי מכולה<br>`;
+                deliverySection.style.display = 'block';
+            }
+            if (message.includes('להציב מכולה') || message.includes('להזמין מכולה')) {
+                deliveryDetails.innerHTML += `<strong>פעולה:</strong> הצבת מכולה<br>`;
+                deliverySection.style.display = 'block';
+            }
+            // ניתוח הזמנת מנוף/משאית
+            if (message.includes('להזמין מנוף')) {
+                deliveryDetails.innerHTML += `<strong>סוג שירות:</strong> הזמנת מנוף<br>`;
+                deliverySection.style.display = 'block';
+            }
+            if (message.includes('להזמין משאית')) {
+                deliveryDetails.innerHTML += `<strong>סוג שירות:</strong> הזמנת משאית<br>`;
+                deliverySection.style.display = 'block';
+            }
+        }
+
+        // עדכון פרטי לקוח/אספקה בזמן אמת מהטופס הדינמי
+        customerNameInput.addEventListener('input', updateDetailsFromForm);
+        deliveryAddressInput.addEventListener('input', updateDetailsFromForm);
+        phoneNumberInput.addEventListener('input', updateDetailsFromForm);
+        contactPersonInput.addEventListener('input', updateDetailsFromForm);
+
+        function updateDetailsFromForm() {
+            customerDetails.innerHTML = '';
+            deliveryDetails.innerHTML = '';
+            customerSection.style.display = 'none';
+            deliverySection.style.display = 'none';
+
+            if (customerNameInput.value.trim()) {
+                customerDetails.innerHTML += `<strong>שם:</strong> ${customerNameInput.value.trim()}<br>`;
+                customerSection.style.display = 'block';
+            }
+            if (phoneNumberInput.value.trim()) {
+                customerDetails.innerHTML += `<strong>טלפון:</strong> ${phoneNumberInput.value.trim()}<br>`;
+                customerSection.style.display = 'block';
+            }
+            if (deliveryAddressInput.value.trim()) {
+                deliveryDetails.innerHTML += `<strong>כתובת:</strong> ${deliveryAddressInput.value.trim()}<br>`;
+                deliverySection.style.display = 'block';
+            }
+            if (contactPersonInput.value.trim()) {
+                deliveryDetails.innerHTML += `<strong>איש קשר:</strong> ${contactPersonInput.value.trim()}<br>`;
+                deliverySection.style.display = 'block';
+            }
+        }
+
+
+        // פתיחת חלון קופץ של סניפים
+        const branchesBtn = document.getElementById('branchesBtn');
+        const branchesPopup = document.getElementById('branchesPopup');
+        const closeBranchesPopup = document.getElementById('closeBranchesPopup');
+
+        branchesBtn.addEventListener('click', function() {
+            branchesPopup.classList.add('show');
+        });
+
+        closeBranchesPopup.addEventListener('click', function() {
+            branchesPopup.classList.remove('show');
+        });
+
+        // פתיחת חלון קופץ של צור קשר
+        const contactBtn = document.getElementById('contactBtn');
+
+        contactBtn.addEventListener('click', function() {
+            const message = "שלום, מעוניין בייעוץ מקצועי לגבי המוצרים והשירותים.";
+            typeMessage(popupMessageText, message);
+            messagePopup.classList.add('show');
+            analyzeMessage(message);
+        });
+
+        // אנימציות כפתורים בלחיצה ועזיבה
+        const allButtons = document.querySelectorAll('.btn, .popup-btn, .branch-button, .show-messages-btn, .send-btn, .close-popup');
+
+        allButtons.forEach(button => {
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.95)';
+                this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.5)';
+            });
+
+            button.addEventListener('mouseup', function() {
+                // שחזור למצב המקורי או למצב ריחוף אם קיים
+                if (button.matches('.btn:hover')) {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                    this.style.boxShadow = '0 12px 25px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.2)';
+                } else if (button.matches('.popup-btn:hover, .branch-button:hover, .send-btn:hover')) {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                } else if (button.matches('.show-messages-btn:hover, .close-popup:hover')) {
+                    this.style.transform = 'scale(1.1)';
+                } else {
+                    this.style.transform = 'scale(1)';
+                }
+            });
+
+            button.addEventListener('mouseleave', function() {
+                // שחזור למצב המקורי
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = ''; // הסרת צל לחיצה
+                // אם יש אפקט ריחוף, החזר אותו
+                if (button.matches('.btn')) {
+                    this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.1)';
+                }
+            });
+        });
+
+        // התאמת גובה ה-popup-content לגובה המסך
+        function adjustPopupHeight() {
+            const popups = document.querySelectorAll('.popup-container');
+            popups.forEach(popup => {
+                const headerHeight = popup.querySelector('.popup-header') ? popup.querySelector('.popup-header').offsetHeight : 0;
+                const actionsHeight = popup.querySelector('.popup-actions') ? popup.querySelector('.popup-actions').offsetHeight : 0;
+                const padding = parseInt(window.getComputedStyle(popup).paddingTop) + parseInt(window.getComputedStyle(popup).paddingBottom);
+                const availableHeight = window.innerHeight * 0.9 - headerHeight - actionsHeight - padding; // 90vh
+                popup.querySelector('.popup-content').style.maxHeight = `${availableHeight}px`;
+            });
+        }
+
+        // קריאה לפונקציית התאמת גובה בטעינה ובשינוי גודל חלון
+        window.addEventListener('load', adjustPopupHeight);
+        window.addEventListener('resize', adjustPopupHeight);
+
+    </script>
+</body>
+</html>
+�
