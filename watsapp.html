@@ -242,7 +242,7 @@
             <!-- הודעות יוכנסו כאן על ידי JavaScript -->
             <div class="message-row bot">
                 <img src="https://placehold.co/30x30/25D366/FFFFFF?text=🤖" alt="Bot Avatar" class="message-avatar">
-                <div class="message-bubble bot">שלום! אני צ'אטבוט תמיכה. אנא המתן בזמן שאני טוען את מאגר הידע שלי.</div>
+                <div class="message-bubble bot">שלום! אני צ'אטבוט תמיכה. אנא המתן בזמן שאני טוען את מערכת הצ'אט.</div>
             </div>
         </div>
 
@@ -263,13 +263,11 @@
         const loadingOverlay = document.getElementById('loadingOverlay');
         const botStatus = document.querySelector('.chat-header .status'); // אלמנט הסטטוס בכותרת
 
-        let qaDatabase = []; // מאגר שאלות ותשובות יטען מגיליון Google
         let conversationHistory = []; // לתיעוד היסטוריית השיחה
 
         // *** הגדר את כתובות ה-URL של Web App של Google Apps Script כאן ***
         // החלף בכתובות ה-URL שתקבל לאחר פריסת הסקריפטים.
-        const QA_DATABASE_URL = 'https://script.google.com/macros/s/AKfycbyByqs961SUekOI9VkRq6fQXxnkhw_kv0gg8fiLtueRBkxc_WzSScQk1m-jr5xIVA7kEg/exec'; // EXAMPLE: 'https://script.google.com/macros/s/AKfycbz_YOUR_SCRIPT_ID/exec'
-        const CONVERSATION_LOG_URL = 'https://script.google.com/macros/s/AKfycbyByqs961SUekOI9VkRq6fQXxnkhw_kv0gg8fiLtueRBkxc_WzSScQk1m-jr5xIVA7kEg/exec'; // EXAMPLE: 'https://script.google.com/macros/s/AKfycbz_YOUR_SCRIPT_ID/exec'
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyByqs961SUekOI9VkRq6fQXxnkhw_kv0gg8fiLtueRBkxc_WzSScQk1m-jr5xIVA7kEg/exec';
 
         // פונקציה להוספת הודעה לצ'אט
         function addMessage(text, sender) {
@@ -331,56 +329,59 @@
             botStatus.textContent = 'מחובר'; // החזר סטטוס רגיל
         }
 
-        // פונקציה לטעינת מאגר הידע מגיליון Google
-        async function loadQaDatabase() {
+        // פונקציה לטעינת מערכת הצ'אט (כעת רק מפעילה את הממשק)
+        async function loadChatSystem() {
             loadingOverlay.classList.remove('hidden');
             messageInput.disabled = true;
             sendMessageBtn.disabled = true;
-            botStatus.textContent = 'טוען מאגר ידע...';
+            botStatus.textContent = 'טוען מערכת צ\'אט...';
 
-            // בדיקה שכתובות ה-URL הוגדרו כראוי
-            if (QA_DATABASE_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_QA_WEB_APP_URL') || CONVERSATION_LOG_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_LOG_WEB_APP_URL')) {
-                addMessage('שגיאה: אנא הגדר את כתובות ה-URL של Google Apps Script בקוד ה-HTML.', 'bot');
+            // בדיקה שכתובת ה-URL הוגדרה כראוי
+            if (APPS_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_QA_WEB_APP_URL')) {
+                addMessage('שגיאה: אנא הגדר את כתובת ה-URL של Google Apps Script בקוד ה-HTML.', 'bot');
                 loadingOverlay.classList.add('hidden');
                 botStatus.textContent = 'שגיאת הגדרה';
                 return; // עצור את הטעינה אם ה-URL לא הוגדר
             }
 
+            // דימוי זמן טעינה
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            addMessage('שלום! אני צ\'אטבוט תמיכה. איך אוכל לעזור לך היום?', 'bot');
+            addMessage('נסה לשאול אותי על: "סטטוס הזמנה" ו"הזמנה 123", או "שעות פתיחה" ו"חנות".', 'bot');
+
+            loadingOverlay.classList.add('hidden');
+            messageInput.disabled = false;
+            sendMessageBtn.disabled = false;
+            botStatus.textContent = 'מחובר';
+        }
+
+        // פונקציה לקבלת תגובת בוט מהשרת
+        async function getBotResponseFromServer(userMessage) {
             try {
-                const response = await fetch(QA_DATABASE_URL + '?action=getQa');
+                const response = await fetch(APPS_SCRIPT_URL + '?action=getBotResponse', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ userMessage: userMessage })
+                });
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                qaDatabase = data.map(row => {
-                    return {
-                        keywords: row.keywords ? row.keywords.split(',').map(k => k.trim().toLowerCase()) : [],
-                        response: row.response
-                    };
-                });
-                addMessage('מאגר הידע נטען בהצלחה! איך אוכל לעזור לך היום?', 'bot');
-                addMessage('נסה לשאול אותי על: "סטטוס הזמנה", "שעות פתיחה", "צור קשר".', 'bot');
+                return data.response; // השרת יחזיר אובייקט עם שדה 'response'
             } catch (error) {
-                console.error('שגיאה בטעינת מאגר הידע:', error);
-                addMessage('אירעה שגיאה בטעינת מאגר הידע. אנא נסה לרענן את הדף.', 'bot');
-            } finally {
-                loadingOverlay.classList.add('hidden');
-                messageInput.disabled = false;
-                sendMessageBtn.disabled = false;
-                botStatus.textContent = 'מחובר';
+                console.error('שגיאה בקבלת תגובה מהבוט:', error);
+                return 'אירעה שגיאה בקבלת תגובה. אנא נסה שוב מאוחר יותר.';
             }
         }
 
         // פונקציה לתיעוד שיחה בגיליון Google
         async function logConversation(userMsg, botMsg) {
-            // בדיקה שכתובות ה-URL הוגדרו כראוי לפני התיעוד
-            if (CONVERSATION_LOG_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_LOG_WEB_APP_URL')) {
-                console.error('שגיאה: לא ניתן לתעד שיחה. אנא הגדר את כתובת ה-URL של Google Apps Script לתיעוד.');
-                return;
-            }
-
             try {
-                const response = await fetch(CONVERSATION_LOG_URL + '?action=logConversation', {
+                const response = await fetch(APPS_SCRIPT_URL + '?action=logConversation', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -399,19 +400,6 @@
             }
         }
 
-        // פונקציה לקבלת תגובת בוט
-        function getBotResponse(userMessage) {
-            const lowerCaseMessage = userMessage.toLowerCase();
-            for (const qa of qaDatabase) {
-                for (const keyword of qa.keywords) {
-                    if (lowerCaseMessage.includes(keyword)) {
-                        return qa.response;
-                    }
-                }
-            }
-            return 'מצטער, לא הבנתי את שאלתך. אנא נסה לנסח מחדש או לשאול על נושא אחר.';
-        }
-
         // פונקציה לשליחת הודעה וקבלת תגובה
         async function sendMessage() {
             const userMessage = messageInput.value.trim();
@@ -422,12 +410,13 @@
 
             showTypingIndicator(); // הצג חיווי הקלדה
 
-            // דימוי זמן תגובה של בוט
-            await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 1000)); // 1-2 שניות
+            // דימוי זמן תגובה של בוט (בנוסף לזמן ה-fetch)
+            await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 500)); // 0.5-1 שניות
+
+            const botResponse = await getBotResponseFromServer(userMessage); // קבל תגובה מהשרת
 
             hideTypingIndicator(); // הסתר חיווי הקלדה
 
-            const botResponse = getBotResponse(userMessage);
             addMessage(botResponse, 'bot');
 
             // תיעוד השיחה
@@ -443,8 +432,8 @@
             }
         });
 
-        // טען את מאגר הידע עם טעינת הדף
-        window.onload = loadQaDatabase;
+        // טען את מערכת הצ'אט עם טעינת הדף
+        window.onload = loadChatSystem;
     </script>
 </body>
 </html>
