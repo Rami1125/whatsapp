@@ -1424,6 +1424,20 @@
             margin-bottom: 30px;
         }
 
+        .splash-countdown { /* סגנון חדש לספירה לאחור */
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
         .chat-intro-box {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -1851,6 +1865,8 @@
             <div class="splash-text">
                 ברוכים הבאים ל<br>ח.סבן חומרי בניין
             </div>
+            <!-- אלמנט חדש לספירה לאחור -->
+            <div class="splash-countdown" id="splashCountdown">3</div>
             <div class="chat-intro-box">
                 <div class="intro-avatar"></div>
                 <div class="intro-agent-name">נציג שירות</div>
@@ -2193,8 +2209,7 @@
         // נתוני מוצרים לדוגמה (יוחלפו בנתונים אמיתיים)
         const productsData = {
             "חשמל": [
-                { id: "e1", name: "מנעול חכם Linus® L2 מבית YALE!", description: "מנעול חכם Linus® L2 מבית YALE!
-", image: "https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT03-20?wid=1520" },
+                { id: "e1", name: "מנעול חכם Linus® L2 מבית YALE!", description: "פתיחה אוטומטית ללא מפתח - עם קודן או טביעת אצבע 🔑🖐️", image: "https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT03-20?wid=1520" },
                 { id: "e2", name: "שקע כפול גוויס", description: "שקע חשמל כפול איכותי להתקנה בקיר.", image: "https://placehold.co/120x120/f0f0f0/333333?text=שקע+חשמל" },
                 { id: "e3", name: "מפסק תאורה", description: "מפסק לדוד חשמל, תאורה ועוד.", image: "https://placehold.co/120x120/f0f0f0/333333?text=מפסק+תאורה" },
                 { id: "e4", name: "לוח חשמל 12 מקום", description: "לוח חשמל תקני לדירות ומשרדים קטנים.", image: "https://placehold.co/120x120/f0f0f0/333333?text=לוח+חשמל" },
@@ -2238,10 +2253,10 @@
                 { id: "g4", name: "דשן נוזלי", description: "דשן נוזלי מרוכז לדישון צמחי גינה.", image: "https://placehold.co/120x120/f0f0f0/333333?text=דשן" }
             ],
             "שירותי הובלה": [
-                { id: "h1", name: "הובלת מלט ובלות (מנוף)", description: "הובלת מלט ובלות לאתר הלקוח.", image: "https://img.d.co.il/Customers/80382240/ea7d29aa6b4243178b45530a7e9bd331_63.jpg" },
-                { id: "h2", name: "מנוף 20 מטר", description: "שירות מנוף עד גובה 20 מטר להרמת חומרים.", image: "https://hovalail.co.il/wp-content/uploads/2025/03/Adobe-Express-file-1-3.png" },
-                { id: "h3", name: "פינוי פסולת 8 קוב", description: "פינוי פסולת בניין במכולה 8 קוב.", image: "https://uploads.homeless.co.il/yad2/202202/nvFile4157549.jpg" },
-                { id: "h4", name: "הובלת חול (קוב)", description: "הובלת חול בכמויות גדולות לאתרי בנייה.", image: "https://www.vakninpro.co.il/wp-content/uploads/2021/02/%D7%9E%D7%9C%D7%9810.png" }
+                { id: "h1", name: "הובלת מלט (טון)", description: "הובלת מלט עד 10 טון לאתר הלקוח.", image: "https://placehold.co/120x120/f0f0f0/333333?text=הובלת+מלט" },
+                { id: "h2", name: "מנוף 20 מטר", description: "שירות מנוף עד גובה 20 מטר להרמת חומרים.", image: "https://placehold.co/120x120/f0f0f0/333333?text=מנוף" },
+                { id: "h3", name: "פינוי פסולת 8 קוב", description: "פינוי פסולת בניין במכולה 8 קוב.", image: "https://placehold.co/120x120/f0f0f0/333333?text=פינוי+פסולת" },
+                { id: "h4", name: "הובלת חול (קוב)", description: "הובלת חול בכמויות גדולות לאתרי בנייה.", image: "https://placehold.co/120x120/f0f0f0/333333?text=הובלת+חול" }
             ]
         };
 
@@ -2306,10 +2321,10 @@
 
         // נתוני תמונות לקרוסלת "מוצרים חדשים"
         const newProductsImages = [
-            { src: "https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT03-20?wid=1520", alt: "מנעול חכם Linus® L2 מבית Yale" },
             { src: "https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131343.PT04-21?wid=3040", alt: "מנעול חכם Linus® L2 מבית Yale" },
-            { src: "https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131343.MAIN-21?wid=1520", alt: "מנעול חכם Linus® L2 מבית Yale" },
-            { src: "https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT06-21?wid=3040", alt: "מנעול חכם Linus® L2 מבית Yale" }
+            { src: "https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131343.PT04-21?wid=3040", alt: "מנעול חכם Linus® L2 מבית Yale" },
+            { src: "https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT06-21?wid=3040", alt: "מנעול חכם Linus® L2 מבית Yale" },
+            { src: "https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131343.MAIN-21?wid=1520", alt: "מנעול חכם Linus® L2 מבית Yale" }
         ];
 
 
@@ -2322,6 +2337,7 @@
         // אלמנטים של סקשן פתיחה (Splash Screen)
         const splashScreen = document.getElementById('splashScreen');
         const startChatBtn = document.getElementById('startChatBtn');
+        const splashCountdown = document.getElementById('splashCountdown'); // אלמנט חדש לספירה לאחור
 
         // אלמנטים של תפריט ניווט
         const mainMenuBtn = document.getElementById('mainMenuBtn');
@@ -2464,14 +2480,33 @@
         });
 
         // --- לוגיקת סקשן פתיחה (Splash Screen) ---
-        startChatBtn.addEventListener('click', () => {
+        function hideSplashScreen() {
             splashScreen.style.opacity = '0';
             setTimeout(() => {
                 splashScreen.style.display = 'none';
                 tabletContainer.style.display = 'flex';
                 showAgentPopup(); // הצגת הפופאפ של הנציגה לאחר טעינת האתר
             }, 1000); // תואם לזמן המעבר של ה-opacity
+        }
+
+        startChatBtn.addEventListener('click', () => {
+            hideSplashScreen();
         });
+
+        // פונקציית ספירה לאחור אוטומטית למסך הפתיחה
+        function startSplashCountdown(duration = 3) {
+            let timeLeft = duration;
+            splashCountdown.textContent = timeLeft;
+            const countdownInterval = setInterval(() => {
+                timeLeft--;
+                splashCountdown.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    hideSplashScreen();
+                }
+            }, 1000);
+        }
+
 
         // --- לוגיקת תפריט ניווט ---
         mainMenuBtn.addEventListener('click', () => {
@@ -3102,6 +3137,9 @@
             document.getElementById('contactBtn').addEventListener('click', function() {
                 showDynamicContactForm("שלום, מעוניין בייעוץ מקצועי לגבי המוצרים והשירותים.");
             });
+
+            // הפעלת הספירה לאחור של מסך הפתיחה
+            startSplashCountdown(3); // מתחיל ספירה לאחור מ-3 שניות
         });
     </script>
 </body>
