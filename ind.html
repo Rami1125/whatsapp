@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ח. סבן – מנעול חכם Linus® L2 מבית YALE | השקה במחיר מיוחד!</title>
+    <meta name="description" content="מנעול חכם Linus® L2 מבית Yale - שליטה מלאה מהסמארטפון, פתיחה אוטומטית ואבטחה מתקדמת. מחיר השקה 1,449₪ בלבד! הזמן עכשיו.">
+    <meta name="keywords" content="מנעול חכם, Linus L2, Yale, ח. סבן, בית חכם, אבטחה, מנעול דיגיטלי, קודן, טביעת אצבע">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --light-gray: #bdc3c7;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            background: linear-gradient(to right, #ffffff, #f1c40f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+            align-items: center;
+        }
+        
+        .product-gallery {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        
+        .main-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .main-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .zoom-icon {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .thumbnail-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .thumbnail {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        
+        .thumbnail:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .thumbnail.active {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .price-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        
+        .sale-badge {
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .color-options {
+            margin: 20px 0;
+        }
+        
+        .color-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .colors {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected {
+            border-color: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        .gray { background: hwb(0 5% 95%); }
+        .light-gray { background: #bdc3c7; }
+        
+        .key-features {
+            margin: 30px 0;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .key-features h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.3);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .video-container {
+            margin: 40px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        
+        .smart-home-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .smart-home-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .smart-home-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .smart-home-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .smart-home-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .smart-home-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .mobile-control-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            margin: 40px 0;
+        }
+        
+        .mobile-control-images {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .mobile-image {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+        
+        .mobile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .mobile-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .mobile-control-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .testimonials {
+            margin: 50px 0;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--light);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            line-height: 1;
+            z-index: 0;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 15px;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .author-title {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: #f39c12;
+            margin: 5px 0;
+        }
+        
+        .stores {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .store-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .store-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .store-info {
+            flex: 1;
+        }
+        
+        .store-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .store-address {
+            color: var(--gray);
+        }
+        
+        .map-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .map-link:hover {
+            text-decoration: underline;
+        }
+        
+        .social-share {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            justify-content: center;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .facebook { background: #3b5998; }
+        .twitter { background: #1da1f2; }
+        .instagram { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+        .whatsapp { background: #25D366; }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .product-section {
+                flex-direction: column;
+            }
+            
+            .video-container iframe {
+                height: 300px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .thumbnail-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mobile-control-images {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-lock"></i>
+                <span>ח. סבן - חומרי בניין</span>
+            </div>
+            <h1>חדש בח. סבן – מנעול חכם <span class="highlight">Linus® L2</span> מבית YALE!</h1>
+            <p class="tagline">🚪 הדור הבא של הבטיחות – עכשיו במחיר השקה מיוחד! 🔒✨</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="product-section">
+            <div class="product-gallery">
+                <div class="main-image-container">
+                    <img src="https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT03-20?wid=1520" alt="מנעול Linus L2" class="main-image" id="mainImage">
+                    <div class="zoom-icon" onclick="zoomImage()">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="thumbnail-container">
+                    <img src="https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT03-20?wid=1520" alt="מנעול Linus L2 - מבט קדמי" class="thumbnail active" onclick="changeImage(this, 'https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT03-20?wid=1520')">
+                    <img src="https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131343.MAIN-21?wid=1520" alt="מנעול Linus L2 - מבט צד" class="thumbnail" onclick="changeImage(this, 'https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131343.MAIN-21?wid=1520')">
+                    <img src="https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131343.PT04-21?wid=3040" alt="מנעול Linus L2 - עם סמארטפון" class="thumbnail" onclick="changeImage(this, 'https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131343.PT04-21?wid=3040')">
+                    <img src="https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT06-21?wid=3040" alt="מנעול Linus L2 - תא סוללה" class="thumbnail" onclick="changeImage(this, 'https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131336.PT06-21?wid=3040')">
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <h2>מנעול חכם Linus® L2 מבית Yale</h2>
+                <p>המהפכה באבטחת הבית החכם - שליטה מלאה מהסמארטפון שלך!</p>
+                
+                <div class="price-container">
+                    <div>מחיר השקה:</div>
+                    <div class="price">1,449₪ <span class="old-price">1,899₪</span></div>
+                    <div class="sale-badge">חיסכון של 450₪!</div>
+                </div>
+                
+                <div class="key-features">
+                    <h3>📌 יתרונות עיקריים:</h3>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-mobile-alt feature-icon"></i>
+                            שליטה מלאה מהסמארטפון - פתיחה/נעילה מכל מקום 📱
+                        </li>
+                        <li>
+                            <i class="fas fa-key feature-icon"></i>
+                            פתיחה אוטומטית ללא מפתח - עם קודן או טביעת אצבע 🔑🖐️
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-alt feature-icon"></i>
+                            אבטחה מתקדמת עם הצפנה חזקה ושקט נפשי ⏳
+                        </li>
+                        <li>
+                            <i class="fas fa-home feature-icon"></i>
+                            מתאים לכל מערכת בית חכם - תומך ב-Apple HomeKit, Google Assistant ו-Alexa 🏠
+                        </li>
+                        <li>
+                            <i class="fas fa-battery-full feature-icon"></i>
+                            סוללה ארוכת טווח - עד שנה מהחלפה אחרונה 🔋
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="color-options">
+                    <div class="color-title">צבעים זמינים:</div>
+                    <div class="colors">
+                        <div class="color-option gray selected" onclick="selectColor(this)"></div>
+                        <div class="color-option light-gray" onclick="selectColor(this)"></div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="https://wa.me/972547602021?text=אני+רוצה+להזמין+את+המנעול+החכם+Linus+L2+במחיר+השקה+1,449₪" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> הזמן בווטסאפ
+                    </a>
+                    <a href="tel:+972547602021" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> התקשר להזמנה
+                    </a>
+                </div>
+                
+                <div style="text-align: center; margin-top: 15px;">
+                    <small>📍 זמין רק בסניף התלמיד של ח. סבן בהוד השרון</small>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mobile-control-section">
+            <div class="mobile-control-images">
+                <div class="mobile-image">
+                    <img src="https://gw-assets.assaabloy.com/is/image/assaabloy/5052847131343.PT04-21?wid=3040" alt="שליטה בסמארטפון">
+                </div>
+                <div class="mobile-image">
+                    <img src="https://gw-assets.assaabloy.com/is/image/assaabloy/%D7%9E%D7%93%D7%91%D7%A7%D7%AA%20%D7%90%D7%99%D7%A9%D7%95%D7%A8%20%D7%A6%D7%95%D7%9E%D7%AA%20%D7%91%D7%A9%D7%91%D7%AA%20%D7%95%D7%97%D7%92-01?wid=1776&fmt=png-alpha" alt="אפליקציית Yale Home">
+                </div>
+            </div>
+            <div class="mobile-control-content">
+                <h2>📲 שליטה מלאה מהטלפון שלך - מכל מקום בעולם!</h2>
+                <p>עם אפליקציית Yale Home, תוכלו:</p>
+                <ul style="text-align: right; padding-right: 20px;">
+                    <li>לנעול ולפתוח את הדלת מרחוק</li>
+                    <li>לקבל התראות בזמן אמת על כל פעולה</li>
+                    <li>לנהל עד 20 משתמשים שונים עם הרשאות מותאמות</li>
+                    <li>לצפות ביומן כניסות ויציאות</li>
+                    <li>להגדיר תזמונים אוטומטיים לנעילה ופתיחה</li>
+                </ul>
+                <p>האפליקציה זמינה לכל מכשירי iOS ואנדריד, עם ממשק אינטואיטיבי ופשוט לשימוש!</p>
+            </div>
+        </section>
+        
+        <section class="smart-home-section">
+            <h2>🏠 שדרגו את הבית שלכם לחכם יותר!</h2>
+            <p>המנעול החכם Linus L2 משתלב בצורה מושלמת עם מערכת הבית החכם שלכם ומביא את הטכנולוגיה המתקדמת ביותר לאבטחת הבית.</p>
+            
+            <div class="smart-home-grid">
+                <div class="smart-home-item">
+                    <div class="smart-home-icon"><i class="fab fa-apple"></i></div>
+                    <h3>תאימות מלאה עם Apple HomeKit</h3>
+                    <p>שליטה דרך אפליקציית הבית של אפל, Siri ותרחישים אוטומטיים</p>
+                </div>
+                <div class="smart-home-item">
+                    <div class="smart-home-icon"><i class="fab fa-google"></i></div>
+                    <h3>עבודה עם Google Assistant</h3>
+                    <p>הפעלה בקול דרך רמקולים חכמים של Google</p>
+                </div>
+                <div class="smart-home-item">
+                    <div class="smart-home-icon"><i class="fab fa-amazon"></i></div>
+                    <h3>שילוב עם Amazon Alexa</h3>
+                    <p>ניהול קולי דרך מכשירי Echo</p>
+                </div>
+                <div class="smart-home-item">
+                    <div class="smart-home-icon"><i class="fas fa-random"></i></div>
+                    <h3>תמיכה בפרוטוקול Matter</h3>
+                    <p>עבודה עם כל מערכת בית חכם שתומכת בתקן החדש</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="video-container">
+            <iframe src="https://www.youtube.com/embed/u8HkE7FA23M?si=Gw-bTPkzfB6fq2Mb" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        
+        <section class="testimonials">
+            <h2><i class="fas fa-star"></i> 🗣️ מה אומרים הלקוחות שלנו?</h2>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"המנעול פשוט מדהים! כבר לא צריך לזכור מפתחות או לדאוג אם נעלנו את הדלת. האפליקציה נוחה מאוד וקיבלנו שירות מצוין בח. סבן. ממליץ בחום!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="דנה לוי" class="author-avatar">
+                    <div class="author-info">
+                        <div class="author-name">דנה לוי</div>
+                        <div class="author-title">הוד השרון</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"קניתי שני מנעולים - אחד לדלת הכניסה ואחד לדלת הגינה. השירות בח. סבן היה מעולה, הסבירו כל פרט והתקינו בצורה מקצועית. המחיר בהשקה היה משתלם במיוחד!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="איתן כהן" class="author-avatar">
+                    <div class="author-info">
+                        <div class="author-name">איתן כהן</div>
+                        <div class="author-title">רעננה</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="stores" id="stores">
+            <h2><i class="fas fa-map-marker-alt"></i> 📍 סניפי ח. סבן</h2>
+            
+            <div class="store-card">
+                <i class="fas fa-store store-icon"></i>
+                <div class="store-info">
+                    <div class="store-name">סניף הוד השרון - מרכז</div>
+                    <div class="store-address">התלמיד 6, הוד השרון</div>
+                    <a href="https://maps.google.com/?q=התלמיד 6, הוד השרון/החרש 10 הוד השרון" class="map-link" target="_blank">
+                        <i class="fas fa-directions"></i> ניווט
+                    </a>
+                </div>
+                <div class="store-hours">
+                    <div><strong>א'-ו':</strong> 06:00-18:00</div>
+                    <div><strong>ו':</strong> 06:00-14:00</div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="social-share">
+            <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/?text=תראו%20איזה%20מנעול%20חכם%20מצאתי%20בח.%20סבן%20-%20מושלם%20לבית%20החכם%20שלכם%20https://example.com" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+    
+   <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://sites.google.com/view/sb94/home/%D7%9B%D7%9C%D7%99-%D7%A2%D7%91%D7%95%D7%93%D7%94?authuser=1" class="footer-link">כלי עבודה</a>
+                <a href="https://sites.google.com/view/sb94/%D7%A9%D7%99%D7%98%D7%95%D7%AA-%D7%91%D7%A0%D7%99%D7%94?authuser=1" class="footer-link">שיטות בניה</a>
+                <a href="#" class="https://sites.google.com/view/sb94/sano">מוצרים נוספים</a>
+                <a href="#" class="https://sites.google.com/view/sb94/conect">צור קשר</a>
+                <a href="#" class="https://sites.google.com/view/sb94/%D7%A8%D7%A9%D7%99%D7%9E%D7%AA-%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D">הזמנה חדשה</a>
+            </div>
+            <div class="copyright">
+                © 2025 ח. סבן - חומרי בניין. כל הזכויות שמורות.
+            </div>
+            <div class="hashtags">
+                #ח_סבן #חומרי_בניין #מנעול_חכם #Yale #בית_חכם #אבטחה #הוד_השרון
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function changeImage(element, newSrc) {
+            document.getElementById('mainImage').src = newSrc;
+            
+            // Remove active class from all thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Add active class to clicked thumbnail
+            element.classList.add('active');
+        }
+        
+        function selectColor(element) {
+            // Remove selected class from all color options
+            const colors = document.querySelectorAll('.color-option');
+            colors.forEach(color => {
+                color.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked color
+            element.classList.add('selected');
+        }
+        
+        function zoomImage() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.style.transform = mainImage.style.transform === 'scale(1.5)' ? 'scale(1)' : 'scale(1.5)';
+        }
+    </script>
+</body>
+</html>
