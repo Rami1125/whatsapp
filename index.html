@@ -2154,8 +2154,8 @@
         const openChatFromPopupBtn = document.getElementById('openChatFromPopupBtn');
         const agentPopupTimerFill = document.getElementById('agentPopupTimerFill');
 
-        // כתובת קבועה לוואטסאפ
-        const WHATSAPP_FIXED_URL = 'https://wa.me/message/KTODAS7656R6P1';
+        // כתובת קבועה לוואטסאפ - **תוקן לשימוש במספר טלפון**
+        const WHATSAPP_PHONE_NUMBER = '972547602021'; // מספר טלפון בפורמט בינלאומי ללא +
 
         // הצעות לשאלות בצ'אט
         const chatSuggestionsData = [
@@ -2410,13 +2410,22 @@
 
         // שליחת הודעה מהטופס לוואטסאפ
         sendFormWhatsappBtn.addEventListener('click', function() {
+            const message = `שלום, זו פנייה מהאתר:\nשם: ${formNameInput.value.trim()}\nטלפון: ${formPhoneInput.value.trim()}\nנושא: ${formSubjectInput.value.trim()}\nבקשה: ${formMessageInput.value.trim()}`;
+
+            if (!message.trim()) {
+                // במקום alert, נציג הודעה בתוך ה-UI או נמנע מהפעולה
+                console.warn('Cannot send empty message to WhatsApp.');
+                // ניתן להוסיף כאן לוגיקה להצגת הודעת שגיאה ידידותית למשתמש בתוך הפופאפ
+                return;
+            }
+
             const originalText = this.innerHTML; // שמור את הטקסט המקורי
             this.innerHTML = 'נשלח לוואטסאפ! <i class="fas fa-check"></i>'; // שנה את הטקסט
             this.style.backgroundColor = 'var(--primary-dark)'; // שנה צבע
             this.style.boxShadow = '0 0 15px rgba(37, 211, 102, 0.6)'; // שנה צל
 
-            const message = `שלום, זו פנייה מהאתר:\nשם: ${formNameInput.value.trim()}\nטלפון: ${formPhoneInput.value.trim()}\nנושא: ${formSubjectInput.value.trim()}\nבקשה: ${formMessageInput.value.trim()}`;
-            const whatsappUrl = `${WHATSAPP_FIXED_URL}?text=${encodeURIComponent(message)}`;
+            // **תיקון: שימוש במספר טלפון בקישור לוואטסאפ**
+            const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
 
             setTimeout(() => {
@@ -2537,7 +2546,18 @@
                                     const text = msg.textContent.replace('שלח היסטוריית צ\'אט לוואטסאפ', '').trim(); // הסרת טקסט הכפתור
                                     return `${sender}: ${text}`;
                                 }).filter(line => line.trim() !== '').join('\n'); // סינון שורות ריקות
-                                const whatsappUrl = `${WHATSAPP_FIXED_URL}?text=${encodeURIComponent("היסטוריית צ'אט מהאתר:\n" + chatHistoryText)}`;
+                                
+                                if (!chatHistoryText.trim()) {
+                                    console.warn('Cannot share empty chat history to WhatsApp.');
+                                    // ניתן להוסיף כאן לוגיקה להצגת הודעת שגיאה ידידותית
+                                    this.innerHTML = originalShareText;
+                                    this.style.backgroundColor = '';
+                                    this.style.boxShadow = '';
+                                    return;
+                                }
+
+                                // **תיקון: שימוש במספר טלפון בקישור לוואטסאפ**
+                                const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent("היסטוריית צ'אט מהאתר:\n" + chatHistoryText)}`;
                                 window.open(whatsappUrl, '_blank');
 
                                 setTimeout(() => {
