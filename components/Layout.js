@@ -1,6 +1,8 @@
 // components/Layout.js (מבנה האתר)
 import React from 'react';
-
+import './globals.css';
+import Navbar from '../components/Navbar'; // <--- הנה השורה שהייתה חסרה
+import Footer from '../components/Footer';
 const Layout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col font-sans text-gray-900 bg-gray-50" dir="rtl">
