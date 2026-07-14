@@ -1,3 +1,6 @@
+import './globals.css';
+import Navbar from '../components/Navbar'; // <--- הנה השורה שהייתה חסרה
+import Footer from '../components/Footer';
 export default function Navbar() {
   return (
     <nav className="bg-white shadow-md p-4 flex justify-between items-center">
