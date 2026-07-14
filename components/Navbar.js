@@ -5,7 +5,7 @@ export default function Navbar() {
       <div className="space-x-6 space-x-reverse text-gray-700">
         <a href="#products">קטלוג</a>
         <a href="#guides">מדריכים</a>
-        <a href="https://wa.me/972500000000" className="bg-green-600 text-white px-4 py-2 rounded-lg">WhatsApp</a>
+        <a href="https://wa.me/972508860896" className="bg-green-600 text-white px-4 py-2 rounded-lg">WhatsApp</a>
       </div>
     </nav>
   );
